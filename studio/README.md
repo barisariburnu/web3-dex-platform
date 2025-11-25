@@ -1,9 +1,51 @@
-# Sanity Clean Content Studio
+# Sanity Studio Configuration
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
+## Setup Instructions
 
-Now you can do the following things:
+1. **Create a Sanity Account**
+   - Go to [sanity.io](https://www.sanity.io/)
+   - Sign up for a free account
 
-- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
-- [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
-- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+2. **Initialize Sanity**
+   ```bash
+   cd studio
+   npm install -g @sanity/cli
+   sanity init
+   ```
+
+3. **Configure Project**
+   - Follow the CLI prompts to create a new project or select an existing one
+   - Choose the dataset name (default: production)
+   - Update `sanity.json` with your project ID
+
+4. **Update Environment Variables**
+   - Copy your project ID from `sanity.json`
+   - Update `../app/.env.local` with:
+     - `NEXT_PUBLIC_SANITY_PROJECT_ID`
+     - `SANITY_API_TOKEN` (generate from Sanity dashboard)
+
+5. **Deploy Studio**
+   ```bash
+   sanity deploy
+   ```
+
+## Schemas
+
+This studio defines the following schemas:
+
+- **users**: User profiles with wallet addresses
+- **transactions**: Transaction records from the blockchain
+
+## Running Locally
+
+```bash
+yarn start
+# or
+npm start
+```
+
+The studio will be available at http://localhost:3333
+
+## Documentation
+
+For more information, see the [Sanity documentation](https://www.sanity.io/docs).

@@ -1,17 +1,24 @@
 {
-  "name": "uniswap-clone",
+  "name": "web3-dex-platform-studio",
   "private": true,
   "version": "1.0.0",
-  "description": "",
+  "description": "Sanity Studio configuration for Web3 DEX Platform",
   "main": "package.json",
   "author": "Baris Ariburnu <barisariburnu@gmail.com>",
-  "license": "UNLICENSED",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/barisariburnu/web3-dex-platform.git"
+  },
   "scripts": {
     "start": "sanity start",
     "build": "sanity build"
   },
   "keywords": [
-    "sanity"
+    "sanity",
+    "web3",
+    "dex",
+    "blockchain"
   ],
   "dependencies": {
     "@sanity/base": "^2.30.1",

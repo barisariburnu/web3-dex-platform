@@ -1,0 +1,98 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  # Frontend Tests
+  frontend-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./app
+    
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+        cache-dependency-path: './app/yarn.lock'
+    
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+    
+    - name: Lint code
+      run: yarn lint
+      continue-on-error: true
+    
+    - name: Build application
+      run: yarn build
+      env:
+        NEXT_PUBLIC_SANITY_PROJECT_ID: test
+        NEXT_PUBLIC_SANITY_DATASET: test
+        NEXT_PUBLIC_CONTRACT_ADDRESS: 0x0000000000000000000000000000000000000000
+
+  # Smart Contract Tests
+  smart-contract-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./smart_contract
+    
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: './smart_contract/package-lock.json'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Compile contracts
+      run: npx hardhat compile
+    
+    - name: Run tests
+      run: npx hardhat test
+    
+    - name: Test coverage
+      run: npx hardhat coverage
+      continue-on-error: true
+
+  # Security Scan
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+      continue-on-error: true
+    
+    - name: Upload Trivy results to GitHub Security
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'trivy-results.sarif'
+      continue-on-error: true

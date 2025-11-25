@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "uniswap-clone"
+    "name": "web3-dex-platform"
   },
   "api": {
-    "projectId": "tyv5pcm6",
+    "projectId": "your_project_id",
     "dataset": "production"
   },
   "plugins": [

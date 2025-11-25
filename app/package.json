@@ -1,9 +1,38 @@
 {
+  "name": "web3-dex-platform",
+  "version": "1.0.0",
+  "description": "A decentralized exchange (DEX) platform built with Next.js, Solidity, and Sanity.io",
+  "author": "Baris Ariburnu <barisariburnu@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/barisariburnu/web3-dex-platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/barisariburnu/web3-dex-platform/issues"
+  },
+  "homepage": "https://github.com/barisariburnu/web3-dex-platform#readme",
+  "keywords": [
+    "web3",
+    "dex",
+    "decentralized-exchange",
+    "ethereum",
+    "blockchain",
+    "nextjs",
+    "solidity",
+    "smart-contracts",
+    "metamask",
+    "uniswap",
+    "defi",
+    "cryptocurrency"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -15,8 +44,7 @@
     "react-dom": "18.1.0",
     "react-icons": "^4.4.0",
     "react-modal": "^3.15.1",
-    "react-spinners": "^0.12.0",
-    "vercel": "^25.1.0"
+    "react-spinners": "^0.12.0"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
@@ -24,7 +52,12 @@
     "@types/react-dom": "18.0.5",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
+    "prettier": "^2.8.0",
     "tailwindcss": "^3.0.24",
     "typescript": "4.7.2"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
   }
 }
