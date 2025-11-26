@@ -1,8 +1,9 @@
 {
     "version": 2,
-    "buildCommand": "cd app && yarn install && yarn build",
-    "devCommand": "cd app && yarn dev",
-    "installCommand": "cd app && yarn install",
-    "framework": null,
-    "outputDirectory": "app/.next"
+    "buildCommand": "yarn build",
+    "devCommand": "yarn dev",
+    "installCommand": "yarn install",
+    "framework": "nextjs",
+    "outputDirectory": ".next",
+    "rootDirectory": "app"
 }
