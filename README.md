@@ -46,10 +46,15 @@ web3-dex-platform/
 
 Before you begin, ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v14 or higher)
+- [Node.js](https://nodejs.org/) (v18 or higher) ⚠️ **Node.js 18.x is required**
 - [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/)
 - [MetaMask](https://metamask.io/) browser extension
 - [Git](https://git-scm.com/)
+
+> **📖 Deployment Guides**: 
+> - [Vercel Deployment Guide](VERCEL_DEPLOYMENT.md) - Step-by-step Vercel deployment
+> - [GitHub Actions CI/CD](GITHUB_ACTIONS.md) - Understanding the CI/CD pipeline
+
 
 ### Installation
 
