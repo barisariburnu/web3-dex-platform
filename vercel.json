@@ -4,19 +4,5 @@
     "devCommand": "cd app && yarn dev",
     "installCommand": "cd app && yarn install",
     "framework": null,
-    "outputDirectory": "app/.next",
-    "env": {
-        "NEXT_PUBLIC_SANITY_PROJECT_ID": "@sanity_project_id",
-        "NEXT_PUBLIC_SANITY_DATASET": "@sanity_dataset",
-        "SANITY_API_TOKEN": "@sanity_api_token",
-        "NEXT_PUBLIC_CONTRACT_ADDRESS": "@contract_address"
-    },
-    "build": {
-        "env": {
-            "NEXT_PUBLIC_SANITY_PROJECT_ID": "@sanity_project_id",
-            "NEXT_PUBLIC_SANITY_DATASET": "@sanity_dataset",
-            "SANITY_API_TOKEN": "@sanity_api_token",
-            "NEXT_PUBLIC_CONTRACT_ADDRESS": "@contract_address"
-        }
-    }
+    "outputDirectory": "app/.next"
 }
