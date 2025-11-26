@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- **Vercel Deployment**: Added `vercel.json` configuration for monorepo structure
+- **Vercel Deployment**: Created `.env.example` documenting required environment variables
+- **CI/CD**: Fixed smart contract test failures by creating proper `Transactions.test.js`
+- **CI/CD**: Removed outdated `sample-test.js` (Greeter contract test)
+- **CI/CD**: Updated test script to compile contracts before running tests
+- **CI/CD**: Standardized on Node.js 18.x across all environments
+- **Package.json**: Updated Node.js engine requirement to >=18.0.0
+
+### Added
+- **Documentation**: Comprehensive Vercel deployment guide (`VERCEL_DEPLOYMENT.md`)
+- **Documentation**: GitHub Actions CI/CD pipeline documentation (`GITHUB_ACTIONS.md`)
+- **Documentation**: Complete fixes summary (`FIXES_SUMMARY.md`)
+- **Testing**: Full test suite for Transactions smart contract (5 test cases)
+- **Configuration**: Vercel deployment configuration file
+
+### Changed
+- **CI/CD**: Removed Node.js 16.x from test matrix (using 18.x only)
+- **README**: Updated prerequisites to require Node.js 18.x
+- **README**: Added links to deployment and CI/CD documentation
+
 ### Planned
 - Multi-token swap support
 - Liquidity pool creation
@@ -14,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Advanced transaction filtering
 - Mobile-responsive improvements
 - Dark/Light theme toggle
+
 
 ## [1.0.0] - 2025-11-25
 
